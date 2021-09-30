@@ -17,7 +17,7 @@ namespace PortalWebPontoCertificado.Data.Migrations
                     CPF = table.Column<string>(maxLength: 15, nullable: true),
                     Genero = table.Column<string>(maxLength: 50, nullable: true),
                     PIS = table.Column<string>(maxLength: 50, nullable: true),
-                    Salario = table.Column<float>(nullable: true),
+                    Salario = table.Column<double>(nullable: true),
                     Email = table.Column<string>(maxLength: 100, nullable: true),
                     DataAdmissao = table.Column<string>(maxLength: 10, nullable: true)
 

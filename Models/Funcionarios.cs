@@ -10,7 +10,7 @@ namespace PortalWebPontoCertificado.Models
         [Column("Id")]
         public int Id { get; set; }
 
-        [Display(Name = "Nome")]
+        [Display(Name = "Nome do Funcionário")]
         [Column("Nome")]
         public string Nome { get; set; }
 
@@ -18,7 +18,7 @@ namespace PortalWebPontoCertificado.Models
         [Column("CPF")]
         public string CPF { get; set; }
 
-        [Display(Name = "Genero")]
+        [Display(Name = "Gênero")]
         [Column("Genero")]
         public string Genero { get; set; }
 
@@ -26,9 +26,9 @@ namespace PortalWebPontoCertificado.Models
         [Column("PIS")]
         public string PIS { get; set; }
 
-        [Display(Name = "Salario")]
+        [Display(Name = "Salário (R$)")]
         [Column("Salario")]
-        public float Salario { get; set; }
+        public double Salario { get; set; }
 
         [Display(Name = "E-mail")]
         [Column("E-mail")]

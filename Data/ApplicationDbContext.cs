@@ -14,6 +14,6 @@ namespace PortalWebPontoCertificado.Data
         {
             Database.EnsureCreated();
         }
-        public DbSet<PortalWebPontoCertificado.Models.Funcionarios> Funcionarios { get; set; }
+        public DbSet<Funcionarios> Funcionarios { get; set; }
     }
 }

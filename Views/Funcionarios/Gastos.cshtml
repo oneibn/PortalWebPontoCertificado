@@ -1,0 +1,49 @@
+﻿@model IEnumerable<PortalWebPontoCertificado.Models.Funcionarios>
+
+@{
+    ViewData["Title"] = "Gastos";
+    double somaSalario = 0;
+}
+
+<h1>Gastos</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th align="center">
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th align="center">
+                @Html.DisplayNameFor(model => model.CPF)
+            </th>
+            <th align="center">
+                @Html.DisplayNameFor(model => model.Salario)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            somaSalario += item.Salario;
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CPF)
+                </td>
+                <td align="right">
+                    @item.Salario.ToString("N2")
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a>
+                </td>
+            </tr>
+        }
+        <td></td>
+        <td align="right"><strong>TOTAL</strong></td>
+        <td align="right"><strong>@somaSalario.ToString("C")</strong></td>
+        <td></td>
+    </tbody>
+</table>

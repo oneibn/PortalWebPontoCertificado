@@ -61,7 +61,7 @@ namespace PortalWebPontoCertificado.Controllers
                 _context.Add(funcionarios);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
+            } 
             return View(funcionarios);
         }
 
@@ -148,6 +148,25 @@ namespace PortalWebPontoCertificado.Controllers
         private bool FuncionariosExists(int id)
         {
             return _context.Funcionarios.Any(e => e.Id == id);
+        }
+
+        public async Task<IActionResult> Gastos()
+        {
+            return View(await _context.Funcionarios.ToListAsync());
+        }
+
+        public async Task<IActionResult> Search()
+        {
+            var searchNome = Request.Form["searchNome"];
+            var funcionario = from m in _context.Funcionarios
+                               select m;
+            if (!String.IsNullOrEmpty(searchNome))
+            {
+                var searchString = searchNome;
+                funcionario = funcionario.Where(s => s.Nome.Contains(searchString));
+            }
+
+            return View(await funcionario.ToListAsync());
         }
     }
 }
