@@ -10,9 +10,9 @@
     <a asp-action="Create">Cadastrar Funcionário</a>
 </p>
 <form asp-controller="Funcionarios" asp-action="Search" method="get">
-        <input placeholder="Insira o Nome" type="text" name="searchNome" class="form-control" />
-        <input placeholder="Insira o CPF" type="text" id="searchCPF" name="searchCPF" class="form-control" />
-        <input type="submit" value="Filtrar" />
+        <input placeholder="Insira o Nome ou o CPF" type="text" name="searchString" class="form-control" />
+        <input type="radio" name="radioValue" value="Nome" /><label class="radioLabel">Nome</label><input type="radio" name="radioValue" value="CPF" /><label class="radioLabel">CPF</label>
+        <input type="submit" value="Filtrar" class="btn btn-primary" />
 </form>
 <table class="table">
     <thead>
@@ -75,4 +75,3 @@
         }
     </tbody>
 </table>
-<script>$('#searchCPF').mask('000.000.000-00', { placeholder: "___.___.___-__" });</script>

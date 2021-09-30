@@ -150,22 +150,25 @@ namespace PortalWebPontoCertificado.Controllers
             return _context.Funcionarios.Any(e => e.Id == id);
         }
 
+        // Controlador da view para a tabela de Gastos
         public async Task<IActionResult> Gastos()
         {
             return View(await _context.Funcionarios.ToListAsync());
         }
 
-        public async Task<IActionResult> Search()
+        // Controlador para o sistema de buscas
+        public async Task<IActionResult> Search(string searchString, string radioValue)
         {
-            var searchNome = Request.Form["searchNome"];
             var funcionario = from m in _context.Funcionarios
-                               select m;
-            if (!String.IsNullOrEmpty(searchNome))
+                              select m;
+            if (!String.IsNullOrEmpty(searchString) && radioValue == "Nome")
             {
-                var searchString = searchNome;
                 funcionario = funcionario.Where(s => s.Nome.Contains(searchString));
-            }
 
+            } else if (!String.IsNullOrEmpty(searchString) && radioValue == "CPF")
+            {
+                funcionario = funcionario.Where(s => s.CPF.Contains(searchString));
+            }
             return View(await funcionario.ToListAsync());
         }
     }

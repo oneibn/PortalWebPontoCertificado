@@ -11,8 +11,9 @@
 </p>
 <form asp-controller="Funcionarios" asp-action="Search" method="get">
     <p>
-        <input placeholder="Nome" type="text" name="searchString" class="form-control" />
-        <input type="submit" value="Filter" />
+        <input placeholder="Insira o Nome ou o CPF" type="text" name="searchString" class="form-control" />
+        <input type="radio" name="radioValue" value="Nome" /><label class="radioLabel">Nome</label><input type="radio" name="radioValue" value="CPF" /><label class="radioLabel">CPF</label>
+        <input type="submit" value="Filtrar" class="btn btn-primary" />
     </p>
 </form>
 <table class="table">

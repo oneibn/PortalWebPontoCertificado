@@ -3,7 +3,10 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Bem vindo!</h1>
-    <p>Começe a usar nosso portal agora mesmo! <a asp-controller="Funcionarios" asp-action="Index">Acesse</a> os dados, cadastre e edite sua lista de funcionários.</p>
-    <p>Também é possivel ver a os <a asp-controller="Funcionarios" asp-action="Gastos">gastos</a> com salários!</p>
+    <h1 class="display-4">Boas-vindas!</h1>
+    <p>Começe a usar nosso portal agora mesmo!</p>
+    <p>Acesse os dados, cadastre e edite sua lista de funcionários.</p>
+    <p>Também é possivel ver a os gastos detalhados com os salários!</p>
+    <a class="btn btn-primary" asp-controller="Funcionarios" asp-action="Index" >Gerencie seus Funcionários</a>
+    <a class="btn btn-primary" asp-controller="Funcionarios" asp-action="Gastos">Tabela de Gastos</a>
 </div>
